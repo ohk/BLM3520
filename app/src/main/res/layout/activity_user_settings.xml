@@ -8,6 +8,12 @@
     tools:context=".UserSettings">
 
 
+        <ImageButton
+            android:id="@+id/btn_settings_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/abc_vector_test" />
+
         <TextView
             android:id="@+id/textView11"
             android:layout_width="match_parent"
@@ -35,21 +41,22 @@
             android:textColor="@android:color/background_dark" />
 
         <RadioGroup
+            android:id="@+id/radio_settings_group"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="10dp">
 
-            <RadioButton
-                android:id="@+id/radio_settings_male"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Male" />
+                <RadioButton
+                    android:id="@+id/radio_settings_male"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Male" />
 
-            <RadioButton
-                android:id="@+id/radio_settins_female"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Female" />
+                <RadioButton
+                    android:id="@+id/radio_settings_female"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Female" />
         </RadioGroup>
 
         <TextView

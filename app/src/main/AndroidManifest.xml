@@ -9,7 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Sensor"></activity>
+        <activity android:name=".SensorControl"></activity>
         <activity android:name=".Notes" />
         <activity android:name=".UserSettings" />
         <activity android:name=".SendEmail" />
@@ -23,5 +23,9 @@
             </intent-filter>
         </activity>
     </application>
-
+    <uses-sdk android:targetSdkVersion="16" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_INTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 </manifest>

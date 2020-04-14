@@ -45,7 +45,7 @@ public class Menu extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-                Intent sensor = new Intent(Menu.this,Sensor.class);
+                Intent sensor = new Intent(Menu.this, SensorControl.class);
                 startActivity(sensor);
             }
         });

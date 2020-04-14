@@ -3,12 +3,12 @@ package com.example.blm3520;
 public class User {
     String username;
     String password;
-    String imageUrl;
+    int imageId;
 
-    public User(String username, String password, String imageUrl) {
+    public User(String username, String password, int imageId) {
         this.username = username;
         this.password = password;
-        this.imageUrl = imageUrl;
+        this.imageId = imageId;
     }
 
     public String getUsername() {
@@ -27,11 +27,11 @@ public class User {
         this.password = password;
     }
 
-    public String getImageUrl() {
-        return imageUrl;
+    public int getImageId() {
+        return imageId;
     }
 
-    public void setImageUrl(String imageUrl) {
-        this.imageUrl = imageUrl;
+    public void setImageId(int imageId) {
+        this.imageId = imageId;
     }
 }
