@@ -44,6 +44,7 @@ public class UserSettings extends AppCompatActivity implements View.OnClickListe
             height.setText(String.valueOf(sp.getInt("height",0)));
             weight.setText(String.valueOf(sp.getFloat("weight",0)));
             rg.check(sp.getInt("radioGrup",2131165318));
+            //Set data
             sw.setChecked(sp.getBoolean("switch",false));
         } catch(Exception e){
             Toast.makeText(getApplicationContext(), "Data not saved", Toast.LENGTH_LONG).show();

@@ -27,6 +27,7 @@ public class ListUser extends AppCompatActivity {
         layoutManager.scrollToPosition(0);
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setHasFixedSize(true);
+
         Users userList = new Users();
         users = userList.getUserList();
         System.out.println(users.size());

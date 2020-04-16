@@ -3,11 +3,8 @@ package com.example.blm3520;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
-import android.provider.MediaStore;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -22,10 +19,7 @@ public class SendEmail extends AppCompatActivity {
     String email;
     String subject;
     String message;
-    String attachmentFile;
     Uri URI = null;
-    private static final int PICK_FROM_GALLERY = 101;
-    int columnIndex;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,7 +42,7 @@ public class SendEmail extends AppCompatActivity {
         Attachment.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                openFolder();
+                getAttach();
             }
         });
 
@@ -64,16 +58,12 @@ public class SendEmail extends AppCompatActivity {
 
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == PICK_FROM_GALLERY && resultCode == RESULT_OK) {
-            Uri selectedImage = data.getData();
-            String[] filePathColumn = {MediaStore.Images.Media.DATA};
-            Cursor cursor = getContentResolver().query(selectedImage, filePathColumn, null, null, null);
-            cursor.moveToFirst();
-            columnIndex = cursor.getColumnIndex(filePathColumn[0]);
-            attachmentFile = cursor.getString(columnIndex);
-            Log.e("Attachment Path:", attachmentFile);
-            URI = Uri.parse("file://" + attachmentFile);
-            cursor.close();
+        switch (requestCode) {
+            case 3:
+                if (resultCode == RESULT_OK && data != null) {
+                    URI = data.getData();
+                }
+                break;
         }
     }
     public void sendEmail()
@@ -101,13 +91,11 @@ public class SendEmail extends AppCompatActivity {
             Toast.makeText(this, "Request failed try again: " + t.toString(),Toast.LENGTH_LONG).show();
         }
     }
-    public void openFolder()
-    {
-        Intent intent = new Intent();
-        intent.setType("image/*");
-        intent.setAction(Intent.ACTION_GET_CONTENT);
-        intent.putExtra("return-data", true);
-        startActivityForResult(Intent.createChooser(intent, "Complete action using"), PICK_FROM_GALLERY);
 
+    public void getAttach()
+    {
+        Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
+        intent.setType("*/*");
+        startActivityForResult(intent,3);
     }
 }

@@ -27,7 +27,7 @@ public class Menu extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-                Intent notes = new Intent(Menu.this,Notes.class);
+                Intent notes = new Intent(Menu.this,NoteActivity.class);
                 startActivity(notes);
             }
         });

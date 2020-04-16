@@ -1,7 +1,5 @@
 package com.example.blm3520;
 
-import android.util.Log;
-
 import java.util.ArrayList;
 
 public class Users {
@@ -42,7 +40,7 @@ public class Users {
                 R.mipmap.spiderman
         ));
         userList.add(new User(
-                "deadpol",
+                "deadpool",
                 "CaptainDeadpool!No,justDeadpool.",
                 R.mipmap.deadpool
         ));

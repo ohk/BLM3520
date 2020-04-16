@@ -1,8 +1,6 @@
 package com.example.blm3520;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.lifecycle.Lifecycle;
-
 import android.content.Context;
 import android.content.Intent;
 import android.hardware.Sensor;
@@ -10,7 +8,6 @@ import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.os.Bundle;
-import android.os.Handler;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -19,15 +16,17 @@ import android.widget.Toast;
 public class SensorControl extends AppCompatActivity implements SensorEventListener {
     TextView ligthText ;
     TextView accelerometerText;
+    LinearLayout layout;
 
     SensorManager sensorManager;
 
     Sensor lightSensor;
     Sensor accelerometerSensor;
+
     Float X;
     Float Y;
     Float Z;
-    LinearLayout layout;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
